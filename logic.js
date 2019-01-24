@@ -11,6 +11,7 @@ d3.json(queryUrl, function(data) {
   });
   
 function getColor(d) {
+ // if 4.00 <= d >= 3.50 
     return   d > 4.00  ?  'crimson':
              d > 3.50  ? 'red' :
              d > 3.00  ? 'fuchsia' :
@@ -129,14 +130,15 @@ for (var i = 0; i < categories.length; i++) {
 return div;
 };
 
-legend.addTo(map);
+
 
 // Create a layer control
     // Pass in our baseMaps and overlayMaps
     // Add the layer control to the map
-L.control.layers(baseMaps, overlayMaps, legend, {
+L.control.layers(baseMaps, overlayMaps, {
   collapsed: true
 }).addTo(myMap);
+legend.addTo(myMap);
 }
 
     
